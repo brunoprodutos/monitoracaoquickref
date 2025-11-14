@@ -84,7 +84,7 @@
         }
 
         .comparison-table thead {
-            background: linear-gradient(135deg, #11713F 0%, #0C502C 100%);
+            background: linear-gradient(135deg, #28a745 0%, #218838 100%);
             color: white;
         }
 
@@ -97,6 +97,10 @@
 
         .comparison-table th:first-child {
             width: 40%;
+        }
+
+        .comparison-table thead th {
+            background: transparent;
         }
 
         .comparison-table td {
@@ -386,22 +390,12 @@
                     <tr>
                         <td><strong>Horas de Análise Inclusas</strong></td>
                         <td><span class="cross-icon">✗</span> N/A</td>
-                        <td><span class="check-icon">✓</span> 5-15h mensais*</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Análise de Causa Raiz</strong></td>
-                        <td><span class="cross-icon">✗</span> Não incluído</td>
-                        <td><span class="check-icon">✓</span> Incluído nas horas mensais</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Automação de Correções</strong></td>
-                        <td>Básica (scripts predefinidos)</td>
-                        <td>Avançada (customizada e evolutiva)</td>
+                        <td><span class="check-icon">✓</span> A partir de 5h mensais*</td>
                     </tr>
                     <tr>
                         <td><strong>Resolução de Problemas</strong></td>
                         <td>Problemas mapeados (runbooks)</td>
-                        <td>Investigação avançada + causa raiz</td>
+                        <td>Investigação avançada</td>
                     </tr>
                     <tr>
                         <td><strong>Integrações APM</strong></td>
@@ -415,8 +409,8 @@
                     </tr>
                     <tr>
                         <td><strong>Gestão de Conhecimento</strong></td>
-                        <td>Documentação básica</td>
-                        <td>Gestão proativa e evolutiva</td>
+                        <td><span class="check-icon">✓</span> Documentação básica</td>
+                        <td><span class="check-icon">✓</span> Gestão proativa e evolutiva</td>
                     </tr>
                     <tr>
                         <td><strong>Workshop de Alinhamento</strong></td>
@@ -424,7 +418,7 @@
                         <td><span class="check-icon">✓</span> Incluído no setup</td>
                     </tr>
                     <tr>
-                        <td><strong>Tempo de Resposta (SLA)</strong></td>
+                        <td><strong>Tempo de 1ª Resposta (SLA)</strong></td>
                         <td>15 minutos</td>
                         <td>15 minutos</td>
                     </tr>
@@ -435,7 +429,7 @@
                     </tr>
                     <tr>
                         <td><strong>Horas Adicionais N2</strong></td>
-                        <td>N/A</td>
+                        <td>R$ 518,00/hora</td>
                         <td>R$ 518,00/hora</td>
                     </tr>
                 </tbody>
@@ -449,7 +443,7 @@
         <section class="section">
             <h2>O que é a Monitoração 24x7?</h2>
             <p style="font-size: 1.1rem; line-height: 1.8; color: #555;">
-                <strong>Monitoração 24x7</strong> é uma solução gerenciada de observabilidade empresarial que combina tecnologia de ponta (Zabbix), processos padronizados e suporte especializado para garantir a disponibilidade e performance de infraestruturas críticas na nuvem AWS. Oferecemos vigilância ininterrupta, resposta rápida a incidentes e redução drástica do MTTR através de ações automatizadas e expertise especializada.
+                <strong>Monitoração 24x7</strong> é uma solução gerenciada de observabilidade empresarial que combina tecnologia e serviços de ponta (Zabbix e CloudWatch), processos padronizados e suporte especializado para garantir a disponibilidade e performance de infraestruturas críticas na nuvem AWS. Oferecemos vigilância ininterrupta, resposta rápida a incidentes e redução drástica do MTTR através de ações automatizadas e expertise especializada.
             </p>
             <div style="margin-top: 1.5rem;">
                 <h3>Para quem é?</h3>
@@ -639,7 +633,7 @@
             <div class="objection-card">
                 <h4>"Preferimos resolver internamente"</h4>
                 <p class="contorno">
-                    <strong>Contorno:</strong> Respeito total pela autonomia da equipe. Nossa proposta não é assumir o controle, mas <strong>estender sua capacidade operacional</strong>. Você mantém decisões estratégicas e conhecimento do negócio, nós cobrimos os gaps operacionais 24x7 que são caros de manter internamente. Oferecemos <strong>POC gratuita</strong> para validar o valor sem compromisso - você mantém controle total das decisões, fornecemos insights e resolvemos problemas mapeados. Veja na prática como complementamos sua operação sem criar dependência.
+                    <strong>Contorno:</strong> Respeito total pela autonomia da equipe. Nossa proposta não é assumir o controle, mas <strong>estender sua capacidade operacional</strong>. Você mantém decisões estratégicas e conhecimento do negócio, nós cobrimos os gaps operacionais 24x7 que são caros de manter internamente. <strong>Libera recursos da sua equipe para focar em iniciativas estratégicas</strong>, enquanto fornecemos insights especializados e resolvemos problemas mapeados. Veja na prática como complementamos sua operação sem criar dependência.
                 </p>
             </div>
 
@@ -653,7 +647,7 @@
             <div class="objection-card">
                 <h4>"Qual a diferença para um MSP tradicional?"</h4>
                 <p class="contorno">
-                    <strong>Contorno:</strong> MSP tradicional mantém infraestrutura funcionando (break-fix), nossa Monitoração 24x7 é especializada em <strong>observabilidade proativa, resposta a incidentes e redução de MTTR</strong>. Somos AWS Premier Tier Partner com equipe certificada focada exclusivamente em ambientes cloud. A diferença está no <strong>conhecimento especializado, automações customizadas e gestão evolutiva de conhecimento</strong>. Para clientes que já são MSP Darede, inclusive, oferecemos integração total entre serviços para máxima eficiência operacional.
+                    <strong>Contorno:</strong> MSP tradicional mantém infraestrutura funcionando (break-fix), nossa Monitoração 24x7 é especializada em <strong>monitoramento, resposta a incidentes e redução de MTTR</strong>. Somos AWS Premier Tier Partner com equipe certificada focada exclusivamente em ambientes cloud. A diferença está no <strong>conhecimento especializado, automações customizadas e gestão evolutiva de conhecimento</strong>. Para clientes que já são MSP Darede, inclusive, oferecemos integração total entre serviços para máxima eficiência operacional.
                 </p>
             </div>
 

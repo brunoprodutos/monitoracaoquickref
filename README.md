@@ -1,5 +1,7 @@
 # Product Briefing: Monitoração 24x7
 
+> 📖 **[Acesse o Quick Reference Guide oficial](https://brunoprodutos.github.io/monitoracaoquickref/)**
+
 ## 📋 Sumário Executivo
 
 ### O que é o produto?
