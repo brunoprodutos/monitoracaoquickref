@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoração 24x7 - Guia de Referência Rápida</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 0;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #11713F 0%, #0C502C 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 900px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: #11713F;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #F1A22D;
+            padding-bottom: 0.5rem;
+        }
+
+        .section h3 {
+            color: #0C502C;
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        /* Tabela Comparativa - Destaque */
+        .comparison-table-section {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border: 3px solid #F1A22D;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .comparison-table thead {
+            background: linear-gradient(135deg, #11713F 0%, #0C502C 100%);
+            color: white;
+        }
+
+        .comparison-table th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .comparison-table th:first-child {
+            width: 40%;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .comparison-table tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+        .tier-essential {
+            background: #fff9f0;
+        }
+
+        .tier-pro {
+            background: #f0f8ff;
+            font-weight: 500;
+        }
+
+        .check-icon {
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .cross-icon {
+            color: #dc3545;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .highlight-pro {
+            background: linear-gradient(135deg, #F1A22D 0%, #FFB84D 100%);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+
+        /* Problemas que resolve */
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .problem-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-left: 4px solid #F1A22D;
+            padding: 1.5rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .problem-card h4 {
+            color: #11713F;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .problem-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Tabela de Preços */
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .pricing-table thead {
+            background: linear-gradient(135deg, #11713F 0%, #0C502C 100%);
+            color: white;
+        }
+
+        .pricing-table th {
+            padding: 0.8rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .pricing-table td {
+            padding: 0.8rem;
+            border-bottom: 1px solid #e0e0e0;
+            text-align: center;
+        }
+
+        .pricing-table tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+        .price-highlight {
+            font-weight: 700;
+            color: #11713F;
+        }
+
+        .setup-included {
+            color: #28a745;
+            font-weight: 600;
+        }
+
+        /* Identificando Oportunidades */
+        .opportunities-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .opportunities-list li {
+            background: #fff9f0;
+            border-left: 4px solid #F1A22D;
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            font-style: italic;
+            color: #555;
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .opportunities-list li::before {
+            content: '"';
+            position: absolute;
+            left: 1rem;
+            top: 0.5rem;
+            font-size: 3rem;
+            color: #F1A22D;
+            opacity: 0.3;
+            font-family: Georgia, serif;
+        }
+
+        /* Objeções */
+        .objection-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #11713F;
+        }
+
+        .objection-card h4 {
+            color: #dc3545;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .objection-card .contorno {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .contorno strong {
+            color: #11713F;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid #2196F3;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        .info-box p {
+            color: #0d47a1;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .info-box a {
+            color: #0d47a1;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        .info-box a:hover {
+            color: #1565c0;
+        }
+
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, #11713F 0%, #0C502C 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+        }
+
+        .cta-section h2 {
+            color: white;
+            border: none;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header p {
+                font-size: 1.1rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .section h2 {
+                font-size: 1.6rem;
+            }
+
+            .comparison-table,
+            .pricing-table {
+                font-size: 0.85rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td,
+            .pricing-table th,
+            .pricing-table td {
+                padding: 0.6rem;
+            }
+
+            .problems-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Monitoração 24x7 - Guia de Referência Rápida</h1>
+        <p>Transformamos complexidade em tranquilidade operacional, garantindo que sua infraestrutura AWS esteja sempre disponível, performática e otimizada.</p>
+    </header>
+
+    <div class="container">
+        <!-- Tabela Comparativa (Topo) -->
+        <section class="section comparison-table-section">
+            <h2>Essential vs PRO - Comparação de Funcionalidades</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Funcionalidade</th>
+                        <th class="tier-essential">Essential</th>
+                        <th class="tier-pro">PRO <span class="highlight-pro">RECOMENDADO</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Setup Inicial</strong></td>
+                        <td>Cobrado separadamente</td>
+                        <td><span class="check-icon">✓</span> <strong>Incluso</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Monitoramento 24x7</strong></td>
+                        <td>Equipe N1</td>
+                        <td>Equipe N1 + N2 especializado</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Horas de Análise Inclusas</strong></td>
+                        <td><span class="cross-icon">✗</span> N/A</td>
+                        <td><span class="check-icon">✓</span> 5-15h mensais*</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Análise de Causa Raiz</strong></td>
+                        <td><span class="cross-icon">✗</span> Não incluído</td>
+                        <td><span class="check-icon">✓</span> Incluído nas horas mensais</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Automação de Correções</strong></td>
+                        <td>Básica (scripts predefinidos)</td>
+                        <td>Avançada (customizada e evolutiva)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Resolução de Problemas</strong></td>
+                        <td>Problemas mapeados (runbooks)</td>
+                        <td>Investigação avançada + causa raiz</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Integrações APM</strong></td>
+                        <td>Básicas</td>
+                        <td>Avançadas (Datadog, New Relic, etc.)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Propostas de Otimização</strong></td>
+                        <td><span class="cross-icon">✗</span> Não incluído</td>
+                        <td><span class="check-icon">✓</span> Contínuas e proativas</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gestão de Conhecimento</strong></td>
+                        <td>Documentação básica</td>
+                        <td>Gestão proativa e evolutiva</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Workshop de Alinhamento</strong></td>
+                        <td><span class="cross-icon">✗</span> Não incluído</td>
+                        <td><span class="check-icon">✓</span> Incluído no setup</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tempo de Resposta (SLA)</strong></td>
+                        <td>15 minutos</td>
+                        <td>15 minutos</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tempo de Atualização</strong></td>
+                        <td>N/A</td>
+                        <td>1-4h (conforme criticidade)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Horas Adicionais N2</strong></td>
+                        <td>N/A</td>
+                        <td>R$ 518,00/hora</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                <em>*Horas inclusas variam de 5h a 15h mensais conforme faixa de U.M. contratada</em>
+            </p>
+        </section>
+
+        <!-- Descrição do Produto -->
+        <section class="section">
+            <h2>O que é a Monitoração 24x7?</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: #555;">
+                <strong>Monitoração 24x7</strong> é uma solução gerenciada de observabilidade empresarial que combina tecnologia de ponta (Zabbix), processos padronizados e suporte especializado para garantir a disponibilidade e performance de infraestruturas críticas na nuvem AWS. Oferecemos vigilância ininterrupta, resposta rápida a incidentes e redução drástica do MTTR através de ações automatizadas e expertise especializada.
+            </p>
+            <div style="margin-top: 1.5rem;">
+                <h3>Para quem é?</h3>
+                <p style="font-size: 1rem; line-height: 1.7; color: #666;">
+                    Empresas que operam infraestruturas críticas na AWS e necessitam de vigilância ininterrupta, resposta rápida a incidentes, redução do MTTR (Mean Time To Repair) e expertise especializada sem manter equipe própria 24x7. Ideal para ambientes de produção com criticidade média ou alta, empresas em crescimento com orçamentos controlados (Essential) ou operações mission-critical e complexas que exigem análise avançada e foco em inovação (PRO).
+                </p>
+            </div>
+        </section>
+
+        <!-- Problemas que Resolve -->
+        <section class="section">
+            <h2>Problemas que a Monitoração 24x7 Resolve</h2>
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <h4>🕐 Falta de Profissionais em Escala 24x7</h4>
+                    <p>Manter equipe própria 24x7 é caro e complexo. Nossa solução oferece cobertura completa com profissionais certificados AWS sem os custos de contratação e treinamento.</p>
+                </div>
+                <div class="problem-card">
+                    <h4>📋 Ausência de Procedimentos Padronizados</h4>
+                    <p>Sem runbooks e procedimentos claros, cada incidente vira uma crise. Documentamos e evoluímos continuamente os procedimentos operacionais.</p>
+                </div>
+                <div class="problem-card">
+                    <h4>☁️ Colaboradores Não Especialistas em Cloud</h4>
+                    <p>A complexidade da AWS exige conhecimento especializado. Nossa equipe certificada tem expertise acumulada de múltiplos clientes e cenários.</p>
+                </div>
+                <div class="problem-card">
+                    <h4>🧠 Falta de Gestão do Conhecimento</h4>
+                    <p>Conhecimento disperso e não documentado aumenta dependência de pessoas-chave. Implementamos gestão proativa e estruturada do conhecimento operacional.</p>
+                </div>
+                <div class="problem-card">
+                    <h4>⏱️ Alto Tempo de Resolução (MTTR)</h4>
+                    <p>Investigações longas causam indisponibilidade prolongada. Reduzimos drasticamente o MTTR através de automação inteligente e análise especializada.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Unidades Monitoráveis -->
+        <section class="section">
+            <h2>O que são Unidades Monitoráveis (U.M.)?</h2>
+            <p style="font-size: 1.05rem; line-height: 1.8; color: #555;">
+                Uma <strong>Unidade Monitorável (U.M.)</strong> é qualquer recurso de infraestrutura AWS que precisa ser monitorado para garantir performance, disponibilidade e cumprimento de SLA. Exemplos incluem instâncias EC2, clusters RDS, funções Lambda, balanceadores de carga, buckets S3, entre outros. Cada U.M. é identificável, configurável, observável (gera métricas, logs e eventos) e serve como base para a precificação do serviço.
+            </p>
+            <div class="info-box">
+                <p>
+                    📦 <strong>Veja o catálogo completo de Unidades Monitoráveis:</strong><br>
+                    Acesse <a href="https://brunoprodutos.github.io/catalogo-monitoracao/" target="_blank">https://brunoprodutos.github.io/catalogo-monitoracao/</a> para ver todos os serviços AWS cobertos e exemplos de métricas monitoradas.
+                </p>
+            </div>
+        </section>
+
+        <!-- Tabela de Precificação -->
+        <section class="section">
+            <h2>Tabela de Precificação</h2>
+            <p style="margin-bottom: 1rem; color: #666;">
+                Precificação baseada em faixas de Unidades Monitoráveis (U.M.), com valores mensais recorrentes e setup inicial. 
+                <strong>No tier PRO, o setup é incluso e você recebe horas mensais de análise N2.</strong>
+            </p>
+            <table class="pricing-table">
+                <thead>
+                    <tr>
+                        <th>Limite U.M.</th>
+                        <th>Essential<br>Recorrente</th>
+                        <th>Essential<br>Setup</th>
+                        <th>PRO<br>Mensal</th>
+                        <th>PRO<br>Setup</th>
+                        <th>PRO<br>Horas Inclusas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>20</strong></td>
+                        <td class="price-highlight">R$ 2.500</td>
+                        <td>R$ 4.000</td>
+                        <td class="price-highlight">R$ 5.400</td>
+                        <td class="setup-included">Incluso</td>
+                        <td><strong>5h</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>50</strong></td>
+                        <td class="price-highlight">R$ 4.500</td>
+                        <td>R$ 8.000</td>
+                        <td class="price-highlight">R$ 7.800</td>
+                        <td class="setup-included">Incluso</td>
+                        <td><strong>8h</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>100</strong></td>
+                        <td class="price-highlight">R$ 6.000</td>
+                        <td>R$ 14.000</td>
+                        <td class="price-highlight">R$ 10.800</td>
+                        <td class="setup-included">Incluso</td>
+                        <td><strong>10h</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>200</strong></td>
+                        <td class="price-highlight">R$ 10.000</td>
+                        <td>R$ 22.000</td>
+                        <td class="price-highlight">R$ 15.500</td>
+                        <td class="setup-included">Incluso</td>
+                        <td><strong>10h</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>400</strong></td>
+                        <td class="price-highlight">R$ 16.000</td>
+                        <td>R$ 30.000</td>
+                        <td class="price-highlight">R$ 22.000</td>
+                        <td class="setup-included">Incluso</td>
+                        <td><strong>10h</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>600</strong></td>
+                        <td class="price-highlight">R$ 24.000</td>
+                        <td>R$ 42.000</td>
+                        <td class="price-highlight">R$ 33.000</td>
+                        <td class="setup-included">Incluso</td>
+                        <td><strong>15h</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="margin-top: 1.5rem; padding: 1rem; background: #fff9f0; border-left: 4px solid #F1A22D; border-radius: 8px;">
+                <p style="font-size: 0.95rem; color: #666; line-height: 1.6;">
+                    <strong>Sobre as horas inclusas no PRO:</strong>
+                </p>
+                <ul style="margin-top: 0.5rem; padding-left: 1.5rem; color: #666; font-size: 0.9rem;">
+                    <li>Utilizadas somente para incidentes gerados por alertas</li>
+                    <li>Não incluem requisições de serviço</li>
+                    <li>Não incluem incidentes que não geraram alarmes</li>
+                    <li>Não acumulam e não transferem entre meses</li>
+                    <li><strong>Horas adicionais N2: R$ 518,00/hora</strong></li>
+                </ul>
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: #666; font-style: italic;">
+                * Valores sujeitos a customização para volumes maiores que 600 U.M.
+            </p>
+        </section>
+
+        <!-- Identificando Oportunidades -->
+        <section class="section">
+            <h2>Identificando Oportunidades - Sinais de que o Cliente Precisa de Monitoração 24x7</h2>
+            <p style="margin-bottom: 1rem; color: #666;">
+                Fique atento a essas frases e situações que indicam necessidade crítica de monitoração especializada:
+            </p>
+            <ul class="opportunities-list">
+                <li>Recebi ligação às 3h da manhã sobre problema em produção</li>
+                <li>Temos alertas configurados, mas são tantos que a gente nem olha mais</li>
+                <li>Vou precisar chamar o SRE, só ele sabe resolver esse tipo de coisa</li>
+                <li>Gastamos 6 horas investigando um problema que foi resolvido com um simples reset de instância</li>
+                <li>Nosso diretor descobriu o problema através de reclamação do cliente final</li>
+            </ul>
+        </section>
+
+        <!-- Objeções e Contornos -->
+        <section class="section">
+            <h2>Respostas para Objeções Comuns</h2>
+            <p style="margin-bottom: 1.5rem; color: #666;">
+                Respostas eficazes para as principais objeções durante o processo de vendas:
+            </p>
+
+            <div class="objection-card">
+                <h4>"Já temos ferramentas de monitoring configuradas"</h4>
+                <p class="contorno">
+                    <strong>Contorno:</strong> Ferramentas sozinhas não resolvem incidentes - elas apenas os detectam. Nossa solução não substitui suas ferramentas, ela as potencializa com <strong>ação humana especializada 24x7</strong>. Integramos com Zabbix, CloudWatch, Datadog, New Relic e outras plataformas que você já usa, adicionando a camada de resposta e resolução que falta. Ter alertas sem ninguém para agir sobre eles é como ter um sistema de alarme sem empresa de segurança monitorando.
+                </p>
+            </div>
+
+            <div class="objection-card">
+                <h4>"Nossa equipe já faz esse trabalho"</h4>
+                <p class="contorno">
+                    <strong>Contorno:</strong> Sua equipe é competente, mas está pagando o preço da operação manual 24x7. Nossa solução <strong>libera seu time para focar em projetos estratégicos e inovação</strong>, não em apagar incêndios. Calculamos que clientes economizam <strong>60% dos custos comparado a manter equipe própria 24x7</strong> (considerando salários, encargos, treinamento e turnover). Transformamos sua equipe de bombeiros em arquitetos - de reativa para estratégica.
+                </p>
+            </div>
+
+            <div class="objection-card">
+                <h4>"É muito caro manter monitoramento 24x7"</h4>
+                <p class="contorno">
+                    <strong>Contorno:</strong> Vamos aos números: uma hora de indisponibilidade pode custar de R$ 50.000 a R$ 500.000 dependendo do seu negócio. Nosso tier Essential começa em R$ 2.500/mês - <strong>o custo de 3 minutos de downtime em um e-commerce de médio porte</strong>. Além disso, no PRO incluímos análise de causa raiz e automações que <strong>reduzem o MTTR em até 70%</strong>. O investimento se paga na primeira vez que evitamos ou resolvemos rapidamente um incidente crítico.
+                </p>
+            </div>
+
+            <div class="objection-card">
+                <h4>"Nosso ambiente é pequeno, não justifica"</h4>
+                <p class="contorno">
+                    <strong>Contorno:</strong> Tamanho do ambiente não determina criticidade do negócio. Vimos startups com 20 U.M. que não podem ficar 5 minutos fora do ar. Nossa faixa de entrada (20 U.M. por R$ 2.500/mês no Essential) foi desenhada exatamente para ambientes menores que precisam de <strong>disponibilidade de enterprise com orçamento de startup</strong>. Além disso, preparamos sua infraestrutura para crescimento controlado desde cedo - quando você escalar, a operação já estará madura.
+                </p>
+            </div>
+
+            <div class="objection-card">
+                <h4>"Preferimos resolver internamente"</h4>
+                <p class="contorno">
+                    <strong>Contorno:</strong> Respeito total pela autonomia da equipe. Nossa proposta não é assumir o controle, mas <strong>estender sua capacidade operacional</strong>. Você mantém decisões estratégicas e conhecimento do negócio, nós cobrimos os gaps operacionais 24x7 que são caros de manter internamente. Oferecemos <strong>POC gratuita</strong> para validar o valor sem compromisso - você mantém controle total das decisões, fornecemos insights e resolvemos problemas mapeados. Veja na prática como complementamos sua operação sem criar dependência.
+                </p>
+            </div>
+
+            <div class="objection-card">
+                <h4>"Não temos budget agora"</h4>
+                <p class="contorno">
+                    <strong>Contorno:</strong> Entendemos a pressão orçamentária. Considere que <strong>cada incidente não resolvido rapidamente tem um custo direto</strong> (receita perdida, SLA violado, clientes insatisfeitos) e indireto (tempo da equipe, desgaste, reputação). Nosso Essential oferece payback rápido - clientes reportam ROI positivo em menos de 3 meses. Além disso, oferecemos <strong>flexibilidade no setup do Essential</strong> para acomodar seu fluxo de caixa. No PRO, o setup já é incluso. Não é custo, é proteção do seu investimento em infraestrutura.
+                </p>
+            </div>
+
+            <div class="objection-card">
+                <h4>"Qual a diferença para um MSP tradicional?"</h4>
+                <p class="contorno">
+                    <strong>Contorno:</strong> MSP tradicional mantém infraestrutura funcionando (break-fix), nossa Monitoração 24x7 é especializada em <strong>observabilidade proativa, resposta a incidentes e redução de MTTR</strong>. Somos AWS Premier Tier Partner com equipe certificada focada exclusivamente em ambientes cloud. A diferença está no <strong>conhecimento especializado, automações customizadas e gestão evolutiva de conhecimento</strong>. Para clientes que já são MSP Darede, inclusive, oferecemos integração total entre serviços para máxima eficiência operacional.
+                </p>
+            </div>
+
+            <div class="objection-card">
+                <h4>"Não queremos perder controle da operação"</h4>
+                <p class="contorno">
+                    <strong>Contorno:</strong> Você não perde controle, <strong>ganha visibilidade e previsibilidade</strong>. Toda ação é documentada no ITSM, você tem dashboard em tempo real no Zabbix, relatórios mensais detalhados e comunicação transparente. Implementação é gradual com você no controle - começamos com recomendações de baixo risco, você decide o que implementar. No PRO, inclusive, fazemos <strong>workshop de alinhamento inicial</strong> para garantir que processos e thresholds estejam alinhados com suas expectativas. Controle permanece com você, operação fica conosco.
+                </p>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="cta-section">
+            <h2>Transforme Seus Alertas em Tranquilidade Operacional</h2>
+            <p>Não deixe que a falta de monitoramento especializado comprometa sua disponibilidade e reputação.</p>
+            <p style="margin-top: 1rem; font-size: 1.1rem;">
+                <strong>Entre em contato com nossos especialistas e descubra como a Monitoração 24x7 pode proteger sua operação.</strong>
+            </p>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Darede - Todos os direitos reservados | AWS Premier Tier Partner</p>
+    </footer>
+</body>
+</html>
